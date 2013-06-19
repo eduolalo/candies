@@ -1,0 +1,60 @@
+{
+  "settings": {
+    "storage_engine": "localStorage",
+    "api": "http://localhost/candiesapi/",
+    "i18n": {
+      "languages": [
+        "en"
+      ],
+      "files": [
+        "js",
+        "html",
+        "hbs"
+      ],
+      "blacklist": [
+        ".git",
+        "images",
+        "icons",
+        "stylesheets",
+        "libraries"
+      ]
+    },
+    "deploy": {
+      "folders": [
+        "icons",
+        "fonts",
+        "images",
+        "languages"
+      ]
+    },
+    "environment": {
+      "core": [
+        "app",
+        "contrib/modernizr"
+      ],
+      "libraries": [
+        "jquery",
+        "bootstrap",
+        "underscore",
+        "backbone",
+        "handlebars",
+        "globalize",
+        "helpers"
+      ],
+      "main_files": [
+        "listeners",
+        "main"
+      ],
+      "applications": [
+        "root",
+        "welcome"
+      ]
+    }
+  },
+  "name": "candies",
+  "description": "Share and Find candies for WonkaJS",
+  "version": "0.0.1",
+  "author": "",
+  "homepage": "",
+  "_id": "candies@0.0.1"
+}

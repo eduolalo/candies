@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Wonka - candies</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
+</head>
+<body>
+  <div class="container">
+    <div class="navbar navbar-inverse">
+      <div class="navbar-inner">
+        <div class="container" style="width:auto;">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse" >
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a href="#" class="brand">Candies</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li><a ng-href="{{ '#/signin' }}" >Sign in</a> </li>
+              <li><a href="">link-2</a></li>
+              <li><a href="">link-3</a></li>
+              <li><a ng-show="logged" ng-click="logout()">LOGOUT</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+      <div id="divTemplate" ng-view></div>
+        <a href="#wait-container"></a>
+      <div style="display:none;">
+        <div id="wait-container">
+          <div class="progress progress-danger progress-striped active">
+            <div id="bar-wait" class="bar"></div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <script data-main="js/app/main" src="js/lib/vendor/require.js"></script>
+</body>
+</html>
