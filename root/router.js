@@ -12,8 +12,11 @@
       new views.Main({
         el: $('#container')
       });
-      new welcome.views.Main( {
+      new candies.views.Main( {
         el: $( '#sub-container' )
+      });
+      new candies.views.New( {
+        el: $( '#new-candy' )
       });
     },
 

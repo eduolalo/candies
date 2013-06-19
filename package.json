@@ -37,9 +37,11 @@
         "bootstrap",
         "underscore",
         "backbone",
+        "backbone.extensions",
         "handlebars",
         "globalize",
-        "helpers"
+        "helpers",
+        "jquery.colorbox"
       ],
       "main_files": [
         "listeners",
@@ -47,7 +49,7 @@
       ],
       "applications": [
         "root",
-        "welcome"
+        "candies"
       ]
     }
   },
