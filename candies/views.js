@@ -15,7 +15,11 @@
     },
     initialize: function() {
       var me = this;
-      me.render();
+      me.model = new models.Candies();
+      me.model.fetch().done( function() {
+        console.log(me);
+        me.render();
+      });
     },
     render: function() {
       var me = this;

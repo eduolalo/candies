@@ -1,7 +1,7 @@
 {
   "settings": {
     "storage_engine": "localStorage",
-    "api": "http://localhost/candiesapi/",
+    "api": "http://127.0.0.1/candiesapi/",
     "i18n": {
       "languages": [
         "en"
