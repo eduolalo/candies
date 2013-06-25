@@ -1,7 +1,7 @@
 {
   "settings": {
     "storage_engine": "localStorage",
-    "api": "http://127.0.0.1/candiesapi/",
+    "api": "http://www.candiesapi.rcchristiane.com.mx/",
     "i18n": {
       "languages": [
         "en"
