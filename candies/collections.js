@@ -3,6 +3,10 @@
   var models = namespace.models;
   var collections = namespace.collections;
 
-  //TODO: Add collections below
-    
+  collections.Candy = Backbone.Collection.extend( {
+    url: function() {
+      var me = this;
+      return  uri( 'candies' ) + me.getParamsQuery();
+    }
+  });
 })(candies);

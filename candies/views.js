@@ -16,14 +16,14 @@
     initialize: function() {
       var me = this;
       me.model = new models.Candies();
-      me.model.fetch().done( function() {
-        console.log(me);
+      var candies = me.model.get( 'candies' );
+      candies.fetch().done( function() {
         me.render();
       });
     },
     render: function() {
       var me = this;
-      me.$el.html(me.template());
+      me.$el.html(me.template(me.model.toJSON()));
       return me;
     },
     onOpen: function( e ){
@@ -47,5 +47,4 @@
       return me;
     }
   });
-
 })(candies);
