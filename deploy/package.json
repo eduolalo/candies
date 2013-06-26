@@ -1,0 +1,62 @@
+{
+  "settings": {
+    "storage_engine": "localStorage",
+    "api": "http://www.candiesapi.rcchristiane.com.mx/",
+    "i18n": {
+      "languages": [
+        "en"
+      ],
+      "files": [
+        "js",
+        "html",
+        "hbs"
+      ],
+      "blacklist": [
+        ".git",
+        "images",
+        "icons",
+        "stylesheets",
+        "libraries"
+      ]
+    },
+    "deploy": {
+      "folders": [
+        "icons",
+        "fonts",
+        "images",
+        "languages"
+      ]
+    },
+    "environment": {
+      "core": [
+        "app",
+        "contrib/modernizr"
+      ],
+      "libraries": [
+        "jquery",
+        "bootstrap",
+        "underscore",
+        "backbone",
+        "backbone.extensions",
+        "handlebars",
+        "globalize",
+        "helpers",
+        "jquery.colorbox"
+      ],
+      "main_files": [
+        "listeners",
+        "main"
+      ],
+      "applications": [
+        "root",
+        "candies"
+      ]
+    }
+  },
+  "name": "candies",
+  "description": "Share and Find candies for WonkaJS",
+  "version": "0.0.1",
+  "author": "",
+  "homepage": "",
+  "_id": "candies@0.0.1"
+}
