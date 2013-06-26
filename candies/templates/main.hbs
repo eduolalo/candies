@@ -18,11 +18,13 @@
               <th>{{ __ "Descripción" }}</th>
               <th>{{ __ "Versión" }}</th>
             </tr>
-            <tr>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-            </tr>
+              {{# each candies }}
+                <tr>
+                  <td><a href="{{ Candy.url }}" target="blank">{{ Candy.name }}</a></td>
+                  <td>{{ Candy.description }}</td>
+                  <td>{{ Candy.version }}</td>
+                </tr>
+              {{/ each }}
           </tbody>
         </table>
       </div>
