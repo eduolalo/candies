@@ -30,7 +30,12 @@
       var me = this;
       var target = me.$( e.currentTarget );
       me.$( target ).colorbox( {
-        inline: true
+        inline: true,
+        overlayClose: false,
+        closeButton: false,
+        onLoad: function() {
+          $( '#cboxClose' ).remove();
+        }
       });
     }
   });
