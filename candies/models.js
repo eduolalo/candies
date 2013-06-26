@@ -1,12 +1,12 @@
 (function(namespace) {
 
   var models = namespace.models;
+  var collections = namespace.collections;
 
   models.Candies = Backbone.Model.extend({
-    url: function() {
+    initialize: function() {
       var me = this;
-      return  uri( 'candies' ) + me.getParamsQuery();
+      me.set( 'candies', new collections.Candy() );
     }
-  });
-    
+  });    
 })(candies);
