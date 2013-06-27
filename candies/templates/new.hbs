@@ -10,10 +10,10 @@
       </div>
       <div class="row">
         <div class="span3">
-          <input type="text" class="input-medium" placeholder="{{ __ "Name" }}" required>
+          <input name="name" type="text" class="input-medium" placeholder="{{ __ "Name" }}" required>
         </div>
         <div class="span3">
-          <input type="text" class="input-medium" placeholder="{{ __ "Version" }}" required>
+          <input name="version" type="text" class="input-medium" placeholder="{{ __ "Version" }}" required>
         </div>
       </div>
       <div class="row">
@@ -21,7 +21,7 @@
         </div>
         <div class="row">
           <div class="span6">
-            <textarea class="span6" placeholder="{{ __ "Description" }}" required></textarea>
+            <textarea name="description"class="span6" placeholder="{{ __ "Description" }}" required></textarea>
           </div>
         </div>
         <div class="row">
@@ -29,7 +29,7 @@
         </div>
         <div class="row">
           <div class="span6">
-            <input type="text" class="span6" placeholder="{{ __ "Git Hub Url" }}" required>
+            <input name="url" type="url" class="span6" placeholder="https://github.com/user/repo.git" required>
           </div>
         </div>
         <div class="row">

@@ -38,6 +38,7 @@
         "underscore",
         "backbone",
         "backbone.extensions",
+        "backbone.viewhelpers",
         "handlebars",
         "globalize",
         "helpers",

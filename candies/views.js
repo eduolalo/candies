@@ -12,7 +12,7 @@
     template: getTemplate('main'),
     events: {
       'click #newCandy': 'onOpen',
-      'submit': 'onSubmit'
+      
     },
     initialize: function() {
       var me = this;
@@ -40,19 +40,14 @@
           $( '#cboxClose' ).remove();
         }
       });
-    },
-    onSubmit: function(e){
-      e.preventDefault();
-      e.stopPropagation();
-      var me = this;
-      console.log(me);
     }
   });
 
   views.New = Bb.View.extend({
     template: getTemplate('new'),
     events: {
-      'click #cancel': 'onCancel'
+      'click #cancel': 'onCancel',
+      'submit': 'onSubmit'
     },
     initialize: function() {
       var me = this;
@@ -67,6 +62,35 @@
       var me = this;
       me.$( ':input' ).val( '' );
       $.colorbox.close();
+    },
+    onSubmit: function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      var me = this;
+      var form = convertToJSON( me.$( 'form' ) );
+      var empty = false;
+      var error = '';
+      _.each( form, function( item ) {
+        if ( item.trim() == '' ) {
+          empty = true;
+        }
+      });
+      if ( empty ) {
+        alert( __( 'Fill the empty fields' ) );
+        return;
+      }
+      var url = form.url.split( '//' );
+      url = url[1].split( '/' );
+      if ( url[0] != 'github.com' ) {
+        alert( __( 'Is not a Git Hub url' ) );
+        return;
+
+      }
+      var git = url[2].split( '.' );
+      if ( git[1] != 'git' ) {
+        alert( __( 'Is not a Git Hub repository' ) );
+        return;
+      }
     }
-  });
+  }, [viewhelpers.widgets, viewhelpers.forms]);
 })(candies);
