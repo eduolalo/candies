@@ -11,7 +11,8 @@
   views.Main = Bb.View.extend({
     template: getTemplate('main'),
     events: {
-      'click #newCandy': 'onOpen'
+      'click #newCandy': 'onOpen',
+      'submit': 'onSubmit'
     },
     initialize: function() {
       var me = this;
@@ -39,6 +40,12 @@
           $( '#cboxClose' ).remove();
         }
       });
+    },
+    onSubmit: function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      var me = this;
+      console.log(me);
     }
   });
 
