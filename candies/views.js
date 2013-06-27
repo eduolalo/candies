@@ -33,6 +33,8 @@
         inline: true,
         overlayClose: false,
         closeButton: false,
+        // transition: 'fade',
+        fadeOut: 200,
         onLoad: function() {
           $( '#cboxClose' ).remove();
         }
@@ -42,6 +44,9 @@
 
   views.New = Bb.View.extend({
     template: getTemplate('new'),
+    events: {
+      'click #cancel': 'onCancel'
+    },
     initialize: function() {
       var me = this;
       me.render();
@@ -50,6 +55,11 @@
       var me = this;
       me.$el.html(me.template());
       return me;
+    },
+    onCancel: function() {
+      var me = this;
+      me.$( ':input' ).val( '' );
+      $.colorbox.close();
     }
   });
 })(candies);
