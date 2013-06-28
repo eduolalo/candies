@@ -68,15 +68,16 @@
       e.stopPropagation();
       var me = this;
       var form = convertToJSON( me.$( 'form' ) );
-      var empty = false;
       var error = '';
       _.each( form, function( item ) {
         if ( item.trim() == '' ) {
-          empty = true;
+          error = __( 'Fill the empty fields' );
         }
       });
+      form.name = form.name.trim();
+      var pattern = (/[^a-zA-Z0-9_ñ]/.test(form.name));
       if ( empty ) {
-        alert( __( 'Fill the empty fields' ) );
+        alert(  );
         return;
       }
       var url = form.url.split( '//' );
@@ -91,6 +92,7 @@
         alert( __( 'Is not a Git Hub repository' ) );
         return;
       }
+      console.log(pattern);
     }
   }, [viewhelpers.widgets, viewhelpers.forms]);
 })(candies);
