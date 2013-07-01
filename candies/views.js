@@ -51,6 +51,7 @@
     },
     initialize: function() {
       var me = this;
+      me.model = new models.Candies();
       me.render();
     },
     render: function() {
@@ -75,9 +76,8 @@
         }
       });
       form.name = form.name.trim();
-      var pattern = (/[^a-zA-Z0-9_ñ]/.test(form.name));
-      if ( empty ) {
-        alert(  );
+      if ( /[^a-zA-Z0-9_ñ]/.test( form.name ) || /\s/.test( form.url ) )  {
+        alert( __( 'Remove white spaces at Name or URL' ))
         return;
       }
       var url = form.url.split( '//' );
@@ -92,7 +92,10 @@
         alert( __( 'Is not a Git Hub repository' ) );
         return;
       }
-      console.log(pattern);
+      var candy = me.model.get( 'candy' );
+      candy.set( form ).save().done( function() {
+        console.log(me);
+      });
     }
   }, [viewhelpers.widgets, viewhelpers.forms]);
 })(candies);
