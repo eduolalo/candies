@@ -14,7 +14,7 @@
   models.Candy = Backbone.Model.extend({
     url: function() {
       var me = this;
-      return uri( 'candies/save' ) + me.getParamsQuery();
+      return uri( 'candies.json' ) + me.getParamsQuery();
     }
   });   
 

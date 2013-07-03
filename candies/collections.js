@@ -7,7 +7,7 @@
     model: models.Candy,
     url: function() {
       var me = this;
-      return  uri( 'candies' ) + me.getParamsQuery();
+      return  uri( 'candies.json' ) + me.getParamsQuery();
     }
   });
 })(candies);

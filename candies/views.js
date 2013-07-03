@@ -34,7 +34,6 @@
         inline: true,
         overlayClose: false,
         closeButton: false,
-        // transition: 'fade',
         fadeOut: 200,
         onLoad: function() {
           $( '#cboxClose' ).remove();
@@ -93,8 +92,20 @@
         return;
       }
       var candy = me.model.get( 'candy' );
-      candy.set( form ).save().done( function() {
-        console.log(me);
+      candy.addParams( form ).save().done( function(out) {
+        if ( out.error ) {
+          var error = [];
+          _.each( out.error, function( item ) {
+            error.push( item[0] );
+          });
+          var errors = error.join( ', ' );
+          alert( errors );
+          return;
+        }
+        if ( out.ok ) {
+          alert( out. ok );
+          location.reload();
+        }
       });
     }
   }, [viewhelpers.widgets, viewhelpers.forms]);
