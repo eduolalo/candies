@@ -12,9 +12,6 @@
       new views.Main({
         el: $('#container')
       });
-      // new views.New( {
-      //   el: $( '#new-candy' )
-      // })
     },
 
   });
