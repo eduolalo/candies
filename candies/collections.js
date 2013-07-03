@@ -3,10 +3,11 @@
   var models = namespace.models;
   var collections = namespace.collections;
 
-  collections.Candy = Backbone.Collection.extend( {
+  collections.Candies = Backbone.Collection.extend( {
+    model: models.Candy,
     url: function() {
       var me = this;
-      return  uri( 'candies' ) + me.getParamsQuery();
+      return  uri( 'candies.json' ) + me.getParamsQuery();
     }
   });
 })(candies);

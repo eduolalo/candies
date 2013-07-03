@@ -1,3 +1,49 @@
 <script type="text/x-handlebars-template" id="candies-new-template">
-  <h1>funciona!</h1>
+  <form>
+    <div class="well span6">
+      <div>
+        <h4>{{ __ "New Candy" }}</h4>
+      </div>
+      <div class="row">
+        <label class="span3">{{ __ "Name" }}</label>
+        <label class="span3">{{ __ "Version" }}</label>
+      </div>
+      <div class="row">
+        <div class="span3">
+          <input name="name" type="text" class="input-medium" placeholder="{{ __ "Name" }}" required>
+        </div>
+        <div class="span3">
+          <input name="version" type="text" class="input-medium" placeholder="{{ __ "Version" }}" required>
+        </div>
+      </div>
+      <div class="row">
+          <label class="span6">{{ __ "Description" }}</label>
+        </div>
+        <div class="row">
+          <div class="span6">
+            <textarea name="description"class="span6" placeholder="{{ __ "Description" }}" required></textarea>
+          </div>
+        </div>
+        <div class="row">
+          <label class="span6">{{ __ "Git Hub Url" }}</label>
+        </div>
+        <div class="row">
+          <div class="span6">
+            <input name="url" type="url" class="span6" placeholder="https://github.com/user/repo.git" required>
+          </div>
+        </div>
+        <div class="row">
+          <div class="span6">
+            <span class="label label-important">{{ __ "This candy will be reviewed and could be removed if is useless or fake" }}</span>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="span6 text-right">
+            <button class="btn btn-primary">{{ __ "Save" }}</button>
+            <button id="cancel" class="btn" type="button">{{ __ "Cancel" }}</button>
+          </div>
+        </div>
+    </div>
+  </form>
 </script>
