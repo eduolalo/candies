@@ -5,7 +5,7 @@
   var Router = Backbone.Router.extend({
     
     routes: {
-      '': 'main',
+      '': 'main'
     },
 
     main: function() {
@@ -15,8 +15,7 @@
       new candies.views.Main( {
         el: $( '#sub-container' )
       });
-    },
-
+    }
   });
 
   new Router();
