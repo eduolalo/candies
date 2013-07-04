@@ -73,27 +73,9 @@
       e.stopPropagation();
       var me = this;
       var form = convertToJSON( me.$( 'form' ) );
-      var error = '';
-      _.each( form, function( item ) {
-        if ( item.trim() == '' ) {
-          error = __( 'Fill the empty fields' );
-        }
-      });
-      form.name = form.name.trim();
-      if ( /[^a-zA-Z0-9_ñ]/.test( form.name ) || /\s/.test( form.url ) )  {
-        alert( __( 'Remove white spaces at Name or URL' ))
-        return;
-      }
-      var url = form.url.split( '//' );
-      url = url[1].split( '/' );
-      if ( url[0] != 'github.com' ) {
-        alert( __( 'Is not a Git Hub url' ) );
-        return;
-
-      }
-      var git = url[2].split( '.' );
-      if ( git[1] != 'git' ) {
-        alert( __( 'Is not a Git Hub repository' ) );
+      var error = me.validate( form );
+      if ( error ) {
+        alert( error );
         return;
       }
       var candy = me.model.get( 'candy' );
@@ -113,6 +95,31 @@
           $.colorbox.close();
         }
       });
+    },
+    validate: function( form ) {
+     var error = false;
+     _.each( form, function( item ) {
+        if( item.trim() == ''){
+        error = true;
+        }
+        item = item.trim();
+      });
+      if ( error ) {
+        return __( 'fill empty fields' );
+      }
+      if ( /[^a-zA-Z0-9_ñ]/.test( form.name ) || /\s/.test( form.url ) )  {
+        return  __( 'URL have white spaces. Name have white spaces and special characters' );
+      }
+      var url = form.url.split( '//' );
+      url = url[1].split( '/' );
+      if ( url[0] != 'github.com' ) {
+        return  __( 'Is not a Git Hub url' );
+      }
+      var git = url[2].split( '.' );
+      if ( git[1] != 'git' ) {
+        return __( 'Is not a Git Hub repository' );
+      }
+      return error;
     }
   }, [viewhelpers.widgets, viewhelpers.forms]);
 })(candies);
