@@ -15,9 +15,6 @@
       new candies.views.Main( {
         el: $( '#sub-container' )
       });
-      new candies.views.New( {
-        el: $( '#new-candy' )
-      });
     },
 
   });

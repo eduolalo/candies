@@ -17,6 +17,10 @@
     initialize: function() {
       var me = this;
       me.model = new models.Candies();
+      me.newCandy = new views.New ({
+        model: me.model,
+        parentView: me
+      });
       var candies = me.model.get( 'candies' );
       candies.fetch().done( function() {
         me.render();
@@ -25,6 +29,8 @@
     render: function() {
       var me = this;
       me.$el.html(me.template(me.model.toJSON()));
+      me.newCandy.setElement( me.$( '#new-candy' ) )
+      .render();
       return me;
     },
     onOpen: function( e ){
@@ -50,7 +56,6 @@
     },
     initialize: function() {
       var me = this;
-      me.model = new models.Candies();
       me.render();
     },
     render: function() {
@@ -104,7 +109,8 @@
         }
         if ( out.ok ) {
           alert( out. ok );
-          location.reload();
+          me.options.parentView.initialize();
+          $.colorbox.close();
         }
       });
     }
