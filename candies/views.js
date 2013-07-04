@@ -56,7 +56,6 @@
     },
     initialize: function() {
       var me = this;
-      console.log(me);
       me.render();
     },
     render: function() {
