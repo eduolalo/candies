@@ -72,7 +72,6 @@
       e.preventDefault();
       e.stopPropagation();
       var me = this;
-      // return;
       var form = convertToJSON( me.$( 'form' ) );
       var error = '';
       _.each( form, function( item ) {
