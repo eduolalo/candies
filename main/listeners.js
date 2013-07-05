@@ -26,6 +26,6 @@ return json;
 
 function spinerize( el ) {
   el.attr( 'data-children', el.html() );
-  el.html( '<i></i>' );
+  el.html( '<i style="display:none;">A</i>' );
   $( el ).spin();
 }
