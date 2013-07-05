@@ -34,8 +34,12 @@
       return me;
     },
     onOpen: function( e ){
+      e.stopPropagation();
+      e.preventDefault();
       var me = this;
       var target = me.$( e.currentTarget );
+      spinerize ( target );
+      return;
       me.$( target ).colorbox( {
         inline: true,
         overlayClose: false,

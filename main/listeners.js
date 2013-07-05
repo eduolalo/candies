@@ -23,3 +23,9 @@ if (_.has(json, item.name)) {
 });
 return json;
 }
+
+function spinerize( el ) {
+  el.attr( 'data-children', el.html() );
+  el.html( '<i></i>' );
+  $( el ).spin();
+}

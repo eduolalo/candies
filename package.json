@@ -42,7 +42,9 @@
         "handlebars",
         "globalize",
         "helpers",
-        "jquery.colorbox"
+        "jquery.colorbox",
+        "spin",
+        "jquery.spin"
       ],
       "main_files": [
         "listeners",
