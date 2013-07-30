@@ -12,7 +12,7 @@
     template: getTemplate('main'),
     events: {
       'click #newCandy': 'onOpen',
-      
+      'submit': 'onSearch',
     },
     initialize: function() {
       var me = this;
@@ -20,9 +20,8 @@
       me.newCandy = new views.New ({
         model: me.model,
         parentView: me
-      });
-      var candies = me.model.get( 'candies' );
-      candies.fetch().done( function() {
+      });;
+      me.model.get('candies').fetch().done( function() {
         me.render();
       });
     },
@@ -45,7 +44,21 @@
           $( '#cboxClose' ).remove();
         }
       });
-    }
+    },
+    onSearch: function ( e ) {
+      e.preventDefault();
+      e.stopPropagation();
+      var me = this;
+      var query = me.$('#search').val();
+      var pattern = new RegExp(query,'i');
+      var candies = me.model.get('candies').toJSON().filter(function (item) {
+        return pattern.test(item.name) || pattern.test(item.description);
+      });
+      me.$el.html(me.template({
+        candies: candies,
+      }));
+      return me;
+    },
   });
 
   views.New = Bb.View.extend({
@@ -114,10 +127,6 @@
       url = url[1].split( '/' );
       if ( url[0] != 'github.com' ) {
         return  __( 'Is not a Git Hub url' );
-      }
-      var git = url[2].split( '.' );
-      if ( git[1] != 'git' ) {
-        return __( 'Is not a Git Hub repository' );
       }
       return error;
     }
