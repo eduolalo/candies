@@ -128,10 +128,6 @@
       if ( url[0] != 'github.com' ) {
         return  __( 'Is not a Git Hub url' );
       }
-      var git = url[2].split( '.' );
-      if ( git[1] != 'git' ) {
-        return __( 'Is not a Git Hub repository' );
-      }
       return error;
     }
   }, [viewhelpers.widgets, viewhelpers.forms]);
