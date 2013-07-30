@@ -1,43 +1,166 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Wonka - candies</title>
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
-</head>
-<body>
-  <div class="container">
-    <div class="navbar navbar-inverse">
-      <div class="navbar-inner">
-        <div class="container" style="width:auto;">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse" >
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a href="#" class="brand">Candies</a>
-          <div class="nav-collapse">
-            <ul class="nav">
-              <li><a ng-href="{{ '#/signin' }}" >Sign in</a> </li>
-              <li><a href="">link-2</a></li>
-              <li><a href="">link-3</a></li>
-              <li><a ng-show="logged" ng-click="logout()">LOGOUT</a></li>
-            </ul>
-          </div>
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <link rel="shortcut icon" href="/icons/favicon.ico">
+        <link rel="apple-touch-icon" sizes="144x144" href="/icons/touch-icon-144x144.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="/icons/touch-icon-114x114.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="/icons/touch-icon-72x72.png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="/icons/touch-icon-57x57.png" />
+        <link rel="apple-touch-icon" href="/icons/touch-icon-iphone.png" />
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <!-- edit under your own risk -->
+        
+          <link type="text/css" rel="stylesheet" href="main.css?0.0.1">
+        
+        <!-- /edit under your own risk -->
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+        <![endif]-->
+        <div id="container"></div>
+
+        <!-- edit under your own risk -->
+        
+          <script type="text/x-handlebars-template" id="root-main-template">
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="#">Candies</a>
+        <ul class="nav">
+          <li><a href="http://www.wonkajs.com" target="blank">WonkaJS</a></li>
+          <li><a href="https://github.com/julianceballos/wonkajs/wiki/candies" target="blank">{{ __ "Make a candy" }}</a></li>
+          <li><a href="https://github.com/kalmecak/candies/issues/new" target="blank">{{ __ "Bug report" }}</a></li>
+      </div>
+      </ul>
+    </div>
+  </div>
+  <div class="header">
+    <div class="container">
+      <div class="row">
+        <br>
+        <div class="span">
+          <h1>
+            <p>Candies for <img src="/images/wonka-320.png" style="height:90px;"></p>
+          </h1>
+          <p class="slogan">
+            Enhance your experience developing small or very large frontend projects with elegance.
+          </p>
         </div>
       </div>
     </div>
-      <div id="divTemplate" ng-view></div>
-        <a href="#wait-container"></a>
-      <div style="display:none;">
-        <div id="wait-container">
-          <div class="progress progress-danger progress-striped active">
-            <div id="bar-wait" class="bar"></div>
-          </div>
+  </div>
+  <div id="main-container" class="hero-unit container-fluid">
+    <div id="sub-container" class="container"></div>
+  </div>
+</script>
+
+        
+          <script type="text/x-handlebars-template" id="candies-main-template">
+  <div class="well">
+    <div class="row">
+      <div class="span4">
+        <form action="" class="navbar-search">
+          <input type="text" id="search" class="search-query" placeholder="Search">
+        </form>
+      </div>
+      <div class="span5 text-right">
+        <span class="label label-info ">{{ __ "Add your Candy!" }}</span>|
+        <a id="newCandy" class="btn pull-right" href="#new-candy"><i class="icon-plus-sign"></i></a>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="span10">
+        <table class="table table-bordered">
+          <tbody>
+            <tr>
+              <th>{{ __ "Nombre" }}</th>
+              <th>{{ __ "Descripción" }}</th>
+              <th>{{ __ "Versión" }}</th>
+            </tr>
+              {{# each candies }}
+                <tr>
+                  <td><a href="{{ url }}" target="blank">{{ name }}</a></td>
+                  <td>{{ description }}</td>
+                  <td>{{ version }}</td>
+                </tr>
+              {{/ each }}
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div id="cbox" style="display:none;">
+      <div id="new-candy"></div>
+    </div>
+  </div>
+  <div>
+  </div>
+</script>
+
+        
+          <script type="text/x-handlebars-template" id="candies-new-template">
+  <form>
+    <div class="well span6">
+      <div>
+        <h4>{{ __ "New Candy" }}</h4>
+      </div>
+      <div class="row">
+        <label class="span3">{{ __ "Name" }}</label>
+        <label class="span3">{{ __ "Version" }}</label>
+      </div>
+      <div class="row">
+        <div class="span3">
+          <input name="name" type="text" class="input-medium" placeholder="{{ __ "Name" }}" required>
+        </div>
+        <div class="span3">
+          <input name="version" type="text" class="input-medium" placeholder="{{ __ "Version" }}" required>
         </div>
       </div>
-  </div>
-  <script data-main="js/app/main" src="js/lib/vendor/require.js"></script>
-</body>
+      <div class="row">
+          <label class="span6">{{ __ "Description" }}</label>
+        </div>
+        <div class="row">
+          <div class="span6">
+            <textarea name="description"class="span6" placeholder="{{ __ "Description" }}" required></textarea>
+          </div>
+        </div>
+        <div class="row">
+          <label class="span6">{{ __ "Git Hub Url" }}</label>
+        </div>
+        <div class="row">
+          <div class="span6">
+            <input name="url" type="url" class="span6" placeholder="https://github.com/user/repo.git" required>
+          </div>
+        </div>
+        <div class="row">
+          <div class="span6">
+            <span class="label label-important">{{ __ "This candy will be reviewed and could be removed if is useless or fake" }}</span>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="span6 text-right">
+            <button class="btn btn-primary">{{ __ "Save" }}</button>
+            <button id="cancel" class="btn" type="button">{{ __ "Cancel" }}</button>
+          </div>
+        </div>
+    </div>
+  </form>
+</script>
+
+        
+
+        
+          <script type="text/javascript" src="main.js?0.0.1"></script>
+        
+        <!-- /edit under your own risk -->
+    </body>
 </html>

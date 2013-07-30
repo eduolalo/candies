@@ -1,5 +1,0 @@
-(function() {
-
-  namespace("candies");
-    
-})();
