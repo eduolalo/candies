@@ -68,7 +68,7 @@
     <div class="row">
       <div class="span4">
         <form action="" class="navbar-search">
-          <input type="text" class="search-query" placeholder="Search">
+          <input type="text" id="search" class="search-query" placeholder="Search">
         </form>
       </div>
       <div class="span5 text-right">
@@ -88,9 +88,9 @@
             </tr>
               {{# each candies }}
                 <tr>
-                  <td><a href="{{ Candy.url }}" target="blank">{{ Candy.name }}</a></td>
-                  <td>{{ Candy.description }}</td>
-                  <td>{{ Candy.version }}</td>
+                  <td><a href="{{ url }}" target="blank">{{ name }}</a></td>
+                  <td>{{ description }}</td>
+                  <td>{{ version }}</td>
                 </tr>
               {{/ each }}
           </tbody>
@@ -101,7 +101,7 @@
       <div id="new-candy"></div>
     </div>
   </div>
-  <div >
+  <div>
   </div>
 </script>
 
