@@ -1,40 +1,38 @@
 <script type="text/x-handlebars-template" id="candies-main-template">
-  <div class="well">
-    <div class="row">
-      <div class="span4">
-        <form action="" class="navbar-search">
-          <input type="text" id="search" class="search-query" placeholder="Search">
-        </form>
-      </div>
-      <div class="span5 text-right">
-        <a id="newCandy" class="btn pull-right" href="#new-candy">{{ __ "Add your Candy" }} <i class="icon-plus-sign"></i></a>
-      </div>
+  <div class="row">
+    <div class="span4">
+      <form action="" class="navbar-search">
+        <input type="text" id="search" class="search-query" placeholder="{{ __ "Filter candies" }}">
+      </form>
     </div>
-    <hr>
-    <div class="row">
-      <div class="span10">
-        <table class="table table-bordered">
-          <tbody>
-            <tr>
-              <th>{{ __ "Nombre" }}</th>
-              <th>{{ __ "Descripción" }}</th>
-              <th>{{ __ "Versión" }}</th>
-            </tr>
-              {{# each candies }}
-                <tr>
-                  <td><a href="{{ url }}" target="blank">{{ name }}</a></td>
-                  <td>{{ description }}</td>
-                  <td>{{ version }}</td>
-                </tr>
-              {{/ each }}
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <div id="cbox" style="display:none;">
-      <div id="new-candy"></div>
+    <div class="span8 text-right">
+      <a class="btn" href="https://github.com/llorsat/wonkajs/wiki/Candies" target="blank">{{ __ "Built candies" }}</a>
+      <a class="btn" href="https://github.com/kalmecak/candies/issues/new" target="blank">{{ __ "Report a bug" }}</a>
+      <a class="btn" id="newCandy" href="#new-candy"><i class="icon-plus"></i> {{ __ "Add your Candy" }}</a>
     </div>
   </div>
-  <div>
+  <br>
+  <div class="row">
+    <div class="span12">
+      <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <th>{{ __ "Nombre" }}</th>
+            <th>{{ __ "Descripción" }}</th>
+            <th>{{ __ "Versión" }}</th>
+          </tr>
+            {{# each candies }}
+              <tr>
+                <td><a href="{{ url }}" target="blank">{{ name }}</a></td>
+                <td>{{ description }}</td>
+                <td>{{ version }}</td>
+              </tr>
+            {{/ each }}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div id="cbox" style="display:none;">
+    <div id="new-candy"></div>
   </div>
 </script>
