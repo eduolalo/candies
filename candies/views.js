@@ -16,6 +16,7 @@
     },
     initialize: function() {
       var me = this;
+      me.loader();
       me.model = new models.Candies();
       me.newCandy = new views.New ({
         model: me.model,
@@ -23,6 +24,17 @@
       });;
       me.model.get('candies').fetch().done( function() {
         me.render();
+      });
+    },
+    loader: function() {
+      var me = this;
+      $("body").queryLoader2({
+        barColor: "#fff",
+        backgroundColor: "#000",
+        percentage: true,
+        barHeight: 1,
+        completeAnimation: "grow",
+        minimumTime: 100
       });
     },
     render: function() {

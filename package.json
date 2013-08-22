@@ -43,7 +43,8 @@
         "handlebars",
         "globalize",
         "helpers",
-        "jquery.colorbox"
+        "jquery.colorbox",
+        "jquery.queryloader2"
       ],
       "main_files": [
         "listeners",
